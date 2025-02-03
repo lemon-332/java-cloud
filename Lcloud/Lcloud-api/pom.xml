@@ -10,9 +10,22 @@
     <packaging>pom</packaging>
     <name>LcloudApi Maven Webapp</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>Good-api</module>
+    </modules>
     <description>
         所有数据库表对应Bean和Feign接口
     </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.3.2</version>
+<!--            需要scope，在service-dependency中已经引入，但是需要一些注解，引入不编译-->
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
     <build>
         <finalName>LcloudApi</finalName>
     </build>

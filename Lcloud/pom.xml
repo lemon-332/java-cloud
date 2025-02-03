@@ -17,6 +17,7 @@
         <module>Lcloud-web</module>
         <module>Lcloud-util/Lcloud-service-dependency</module>
         <module>Lcloud-util/Lcloud-common</module>
+        <module>Lcloud-service/God-service</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
