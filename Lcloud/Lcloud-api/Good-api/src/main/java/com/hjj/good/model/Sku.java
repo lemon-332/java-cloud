@@ -8,16 +8,25 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("brand")
-public class Brand implements Serializable {
-    @TableId(type = IdType.AUTO)
+@TableName("sku")
+public class Sku implements Serializable {
+    @TableId(type = IdType.ASSIGN_ID)
     private Integer id;
+    private Integer spuId;
     private String name;
+    private Integer price;
+    private Integer num;
     private String image;
-    private String initial;
-    private Integer sort;
+    private String images;
+    private Date createTime;
+    private Date updateTime;
+    private Integer categoryId;
+    private String brandName;
+    private String skuAttribute;
+    private Integer status;
 }

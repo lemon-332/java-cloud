@@ -26,4 +26,13 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements
         queryWrapper.like("name", brand.getName());
         return baseMapper.selectPage(new Page<>(currentPage, size), queryWrapper);
     }
+
+    @Override
+    public List<Brand> queryByCategoryId(Integer categoryId) {
+        List<Integer> brandIds = baseMapper.selectBrandIds(categoryId);
+        if (brandIds != null || brandIds.size() > 0) {
+            return baseMapper.selectList(new QueryWrapper<Brand>().in("id", brandIds));
+        }
+        return null;
+    }
 }

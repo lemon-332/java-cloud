@@ -10,4 +10,6 @@ public interface BrandService extends IService<Brand> {
     List<Brand> queryList(Brand brand);
 
     Page<Brand> queryPageList(Brand brand, Long currentPage,Long size);
+
+    List<Brand> queryByCategoryId(Integer categoryId);
 }

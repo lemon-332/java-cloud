@@ -12,12 +12,11 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("brand")
-public class Brand implements Serializable {
+@TableName("category")
+public class Category implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
     private String name;
-    private String image;
-    private String initial;
+    private Integer parentId;
     private Integer sort;
 }
