@@ -26,7 +26,9 @@ public class Sku implements Serializable {
     private Date createTime;
     private Date updateTime;
     private Integer categoryId;
+    private String categoryName;
     private String brandName;
+    private Integer brandId;
     private String skuAttribute;
     private Integer status;
 }
