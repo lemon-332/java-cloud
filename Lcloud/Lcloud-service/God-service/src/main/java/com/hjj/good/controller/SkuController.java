@@ -16,8 +16,8 @@ public class SkuController {
         this.skuService = skuService;
     }
 
-    @GetMapping("/adItems/type/{id}")
-    public RespResult<List<Sku>> typeItems(@PathVariable Integer id) {
+    @GetMapping("/adItems/type")
+    public RespResult<List<Sku>> typeItems(@RequestParam Integer id) {
         return RespResult.ok(skuService.typeSkuItems(id));
     }
 }
