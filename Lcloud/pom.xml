@@ -19,6 +19,7 @@
         <module>Lcloud-util/Lcloud-common</module>
         <module>Lcloud-service/God-service</module>
         <module>Lcloud-mybatisGenerator</module>
+        <module>Lcloud-service/File-service</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
