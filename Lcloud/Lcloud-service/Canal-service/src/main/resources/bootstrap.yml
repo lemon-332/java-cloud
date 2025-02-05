@@ -1,0 +1,21 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: Canal-service
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: 192.168.30.129:8848
+      discovery:
+        server-addr: 192.168.30.129:8848
+  redis:
+    host: 192.168.30.129
+    port: 6379
+canal:
+  server: 192.168.30.129:11111
+  destination: example
+logging:
+  pattern:
+    console: "%msg%n"

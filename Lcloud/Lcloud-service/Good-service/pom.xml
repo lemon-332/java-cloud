@@ -7,14 +7,14 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>God-service</artifactId>
+    <artifactId>Good-service</artifactId>
     <packaging>jar</packaging>
 
     <description>
         cloud_god数据库 的增删改查
     </description>
 
-    <name>God-service</name>
+    <name>Good-service</name>
     <url>http://maven.apache.org</url>
 
     <properties>
