@@ -21,6 +21,8 @@
         <module>Lcloud-mybatisGenerator</module>
         <module>Lcloud-service/File-service</module>
         <module>Lcloud-service/Canal-service</module>
+        <module>Lcloud-api/Search-api</module>
+        <module>Lcloud-service/Search-service</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>

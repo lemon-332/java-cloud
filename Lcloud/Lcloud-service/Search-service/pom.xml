@@ -7,34 +7,25 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>Canal-service</artifactId>
+    <artifactId>Search-service</artifactId>
     <packaging>jar</packaging>
 
-    <name>Canal-service</name>
+    <name>Search-service</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.hjj</groupId>
-            <artifactId>Good-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+    <description>
+        搜索服务
+    </description>
 
+    <dependencies>
         <dependency>
             <groupId>com.hjj</groupId>
             <artifactId>Search-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
-        <dependency>
-            <groupId>top.javatool</groupId>
-            <artifactId>canal-spring-boot-starter</artifactId>
-            <version>1.2.1-RELEASE</version>
-        </dependency>
-
     </dependencies>
 </project>

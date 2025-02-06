@@ -1,14 +1,14 @@
-package com.hjj.canal;
+package com.hjj.search;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@EnableFeignClients(basePackages = {"com.hjj.good.feign", "com.hjj.search.feign"})
-public class LcloudCanalApplication {
+@EnableElasticsearchRepositories(basePackages = "com.hjj.search.mapper")
+public class LcloudSearchApplication {
     public static void main(String[] args) {
-        SpringApplication.run(LcloudCanalApplication.class, args);
+        SpringApplication.run(LcloudSearchApplication.class, args);
     }
 }

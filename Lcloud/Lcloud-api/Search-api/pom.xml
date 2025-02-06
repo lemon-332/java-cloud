@@ -3,38 +3,24 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.hjj</groupId>
-        <artifactId>Lcloud-service</artifactId>
+        <artifactId>Lcloud-api</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>Canal-service</artifactId>
+    <artifactId>Search-api</artifactId>
     <packaging>jar</packaging>
 
-    <name>Canal-service</name>
+    <name>Search-api</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
     <dependencies>
         <dependency>
-            <groupId>com.hjj</groupId>
-            <artifactId>Good-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.hjj</groupId>
-            <artifactId>Search-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>top.javatool</groupId>
-            <artifactId>canal-spring-boot-starter</artifactId>
-            <version>1.2.1-RELEASE</version>
-        </dependency>
-
     </dependencies>
+
 </project>

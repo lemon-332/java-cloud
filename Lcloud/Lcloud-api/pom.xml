@@ -35,6 +35,18 @@
             <artifactId>Lcloud-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+<!--        elastaicesearch 查询的数据不全，
+        private String categoryName;
+    private Integer brandId;
+    驼峰没法自动进行转化，所以没数据
+-->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>LcloudApi</finalName>
