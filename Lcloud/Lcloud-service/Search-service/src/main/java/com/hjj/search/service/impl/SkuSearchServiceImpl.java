@@ -11,8 +11,14 @@ import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.Aggregations;
 import org.elasticsearch.search.aggregations.bucket.terms.ParsedStringTerms;
 import org.elasticsearch.search.aggregations.bucket.terms.Terms;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.elasticsearch.search.sort.SortBuilders;
+import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
+import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
+import org.springframework.data.elasticsearch.core.query.GetQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +28,11 @@ import java.util.*;
 public class SkuSearchServiceImpl implements SkuSearchService {
     private final SkuSearchMapper skuSearchMapper;
 
-    public SkuSearchServiceImpl(SkuSearchMapper skuSearchMapper) {
+    private final ElasticsearchRestTemplate elasticsearchRestTemplate;
+
+    public SkuSearchServiceImpl(SkuSearchMapper skuSearchMapper, ElasticsearchRestTemplate elasticsearchRestTemplate) {
         this.skuSearchMapper = skuSearchMapper;
+        this.elasticsearchRestTemplate = elasticsearchRestTemplate;
     }
 
     @Override
@@ -48,8 +57,19 @@ public class SkuSearchServiceImpl implements SkuSearchService {
         // 分组搜索
         group(queryBuilder, searchMap);
 
+        // 设置高亮信息 关键词前后面的标签，设置高亮域
+        HighlightBuilder highlightBuilder = new HighlightBuilder()
+                .field("name")
+                .preTags("<span style='color:red'>")
+                .postTags("</span>")
+                .fragmentSize(100); // 碎片长度
+
+        queryBuilder.withHighlightBuilder(highlightBuilder);
 //        Page<SkuEs> page = skuSearchMapper.search(queryBuilder.build());
         AggregatedPage<SkuEs> page = (AggregatedPage<SkuEs>) skuSearchMapper.search(queryBuilder.build());
+//        AggregatedPage<SkuEs> page = elasticsearchRestTemplate
+//                .queryForPage(queryBuilder.build(), SkuEs.class);
+//        SearchHits<SkuEs> searchHits = elasticsearchRestTemplate.search(queryBuilder.build(), SkuEs.class);
 
 
         HashMap<String, Object> resultMap = new HashMap<>();
@@ -129,14 +149,24 @@ public class SkuSearchServiceImpl implements SkuSearchService {
                 // 一attr_ 属于动态属性
                 if (entry.getKey().startsWith("attr_")) {
 //                    boolQueryBuilder.must(QueryBuilders.termQuery("attrMap." + entry.getKey().replaceFirst("attr_",""), entry.getValue()));
-                    boolQueryBuilder.must(QueryBuilders.termQuery("attrMap." + entry.getKey().substring(5) + ".keyword", entry.getValue()));
+                    boolQueryBuilder.must(QueryBuilders.termQuery("attrMap." + entry.getKey().substring(5) + ".keyword", entry.getValue().toString()));
                 }
+            }
+
+            // 排序
+            Object sfield = searchMap.get("sfield");
+            Object sm = searchMap.get("sm");
+            if (!StringUtils.isEmpty(sfield.toString()) && !StringUtils.isEmpty(sm.toString())) {
+                queryBuilder.withSort(
+                        SortBuilders.fieldSort(sfield.toString())
+                                .order(SortOrder.valueOf(sm.toString()))
+                );
             }
         }
 
         // 分页查询
-        queryBuilder.withPageable(PageRequest.of(0, 100));
-        return queryBuilder;
+        queryBuilder.withPageable(PageRequest.of(currentPage(searchMap), 100));
+        return queryBuilder.withQuery(boolQueryBuilder);
     }
 
     public int currentPage(Map<String, Object> searchMap) {
