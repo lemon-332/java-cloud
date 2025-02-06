@@ -6,6 +6,8 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -13,11 +15,14 @@ import java.util.List;
 @CacheConfig(cacheNames = "ad-items-skus")
 public interface SkuFeign {
     @Cacheable(key = "#id")
-    List<Sku> typeSkuItems(Integer id);
+    @GetMapping("/sku/adItems/type")
+    List<Sku> typeSkuItems(@RequestParam(value = "id") Integer id);
 
     @CacheEvict(key = "#id")
-    void delTypeItems(Integer id);
+    @GetMapping("/sku/adItems/type")
+    void delTypeItems(@RequestParam(value = "id") Integer id);
 
     @CachePut(key = "#id")
-    List<Sku> updateTypeSkuItems(Integer id);
+    @GetMapping("/sku/adItems/type")
+    List<Sku> updateTypeSkuItems(@RequestParam(value = "id") Integer id);
 }
