@@ -24,6 +24,7 @@
         <module>Lcloud-api/Search-api</module>
         <module>Lcloud-service/Search-service</module>
         <module>Lcloud-web/Search-web</module>
+        <module>Lcloud-web/Page-web</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>

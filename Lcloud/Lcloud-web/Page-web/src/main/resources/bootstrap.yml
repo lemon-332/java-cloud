@@ -1,0 +1,23 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: Page-web
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: 192.168.30.129:8848
+      discovery:
+        server-addr: 192.168.30.129:8848
+  thymeleaf:
+    cache: false
+    suffix: .html
+    prefix: classpath:/templates/
+    encoding: utf-8
+  main:
+    allow-bean-definition-overriding: true
+pagepath: C:/Users/lemon/Desktop/cloud/Lcloud/Lcloud-web/Page-web/src/main/resources/templates
+logging:
+  pattern:
+    console: "%msg%n"
