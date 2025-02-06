@@ -67,6 +67,7 @@ public class SkuSearchServiceImpl implements SkuSearchService {
         queryBuilder.withHighlightBuilder(highlightBuilder);
 //        Page<SkuEs> page = skuSearchMapper.search(queryBuilder.build());
         AggregatedPage<SkuEs> page = (AggregatedPage<SkuEs>) skuSearchMapper.search(queryBuilder.build());
+        // todo: 解析高亮信息
 //        AggregatedPage<SkuEs> page = elasticsearchRestTemplate
 //                .queryForPage(queryBuilder.build(), SkuEs.class);
 //        SearchHits<SkuEs> searchHits = elasticsearchRestTemplate.search(queryBuilder.build(), SkuEs.class);

@@ -1,0 +1,20 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: Search-web
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: 192.168.30.129:8848
+      discovery:
+        server-addr: 192.168.30.129:8848
+  thymeleaf:
+    cache: false
+    suffix: .html
+    prefix: classpath:/templates/
+    encoding: utf-8
+logging:
+  pattern:
+    console: "%msg%n"

@@ -23,6 +23,7 @@
         <module>Lcloud-service/Canal-service</module>
         <module>Lcloud-api/Search-api</module>
         <module>Lcloud-service/Search-service</module>
+        <module>Lcloud-web/Search-web</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
