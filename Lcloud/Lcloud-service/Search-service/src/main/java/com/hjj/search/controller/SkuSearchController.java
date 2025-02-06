@@ -5,6 +5,8 @@ import com.hjj.search.service.SkuSearchService;
 import com.hjj.util.RespResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/search")
 public class SkuSearchController {
@@ -24,5 +26,11 @@ public class SkuSearchController {
     public RespResult delete(@PathVariable String id) {
         skuSearchService.delete(id);
         return RespResult.ok();
+    }
+
+    @GetMapping
+    public RespResult<Map<String, Object>> search(@RequestParam Map<String, Object> searchMap) {
+        Map<String, Object> resultMap = skuSearchService.search(searchMap);
+        return RespResult.ok(resultMap);
     }
 }
