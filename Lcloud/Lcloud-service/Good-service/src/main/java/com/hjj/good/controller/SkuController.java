@@ -20,4 +20,10 @@ public class SkuController {
     public RespResult<List<Sku>> typeItems(@RequestParam Integer id) {
         return RespResult.ok(skuService.typeSkuItems(id));
     }
+
+    @GetMapping("/{id}")
+    public RespResult<Sku> one(@PathVariable(value = "id") String id) {
+        Sku sku = skuService.getById(id);
+        return RespResult.ok(sku);
+    }
 }

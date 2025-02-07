@@ -3,21 +3,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.hjj</groupId>
-        <artifactId>Lcloud</artifactId>
+        <artifactId>Lcloud-service</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>Lcloud-service</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>Cart-service</artifactId>
+    <packaging>jar</packaging>
 
-    <description>
-        所有微服务的父工程
-    </description>
-    <modules>
-        <module>Cart-service</module>
-    </modules>
-
-    <name>Lcloud-service</name>
+    <name>Cart-service</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -25,19 +18,23 @@
     </properties>
 
     <dependencies>
-<!--        jar包依赖-->
         <dependency>
             <groupId>com.hjj</groupId>
-            <artifactId>Lcloud-service-dependency</artifactId>
+            <artifactId>Cart-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-<!--        工具包依赖-->
         <dependency>
             <groupId>com.hjj</groupId>
-            <artifactId>Lcloud-common</artifactId>
+            <artifactId>Good-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
     </dependencies>
-
 </project>

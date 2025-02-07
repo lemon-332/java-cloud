@@ -1,0 +1,20 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: Cart-service
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: 192.168.30.129:8848
+      discovery:
+        server-addr: 192.168.30.129:8848
+  data:
+    mongodb:
+      uri: mongodb://192.168.30.129:27017/shop #?authSource=admin
+  main:
+    allow-bean-definition-overriding: true
+logging:
+  pattern:
+    console: "%msg%n"

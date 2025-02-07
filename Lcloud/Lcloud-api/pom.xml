@@ -8,10 +8,11 @@
     </parent>
     <artifactId>Lcloud-api</artifactId>
     <packaging>pom</packaging>
-    <name>LcloudApi Maven Webapp</name>
+    <name>Lcloud-api</name>
     <url>http://maven.apache.org</url>
     <modules>
         <module>Good-api</module>
+        <module>Cart-api</module>
     </modules>
     <description>
         所有数据库表对应Bean和Feign接口

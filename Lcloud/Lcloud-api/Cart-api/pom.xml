@@ -3,21 +3,20 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.hjj</groupId>
-        <artifactId>Lcloud</artifactId>
+        <artifactId>Lcloud-api</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>Lcloud-gateway</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>Cart-api</artifactId>
+    <packaging>jar</packaging>
 
-    <description>
-        管理所有微服务网关
-    </description>
-
-    <name>Lcloud-gateway</name>
+    <name>Cart-api</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+    </dependencies>
 </project>

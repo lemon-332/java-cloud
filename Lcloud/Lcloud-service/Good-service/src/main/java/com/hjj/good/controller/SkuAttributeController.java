@@ -20,7 +20,7 @@ public class SkuAttributeController {
     }
 
     @GetMapping("/category/{categoryId}")
-    public RespResult<List<SkuAttribute>> categorySkuAttributeList(@PathVariable Integer categoryId) {
+    public RespResult<List<SkuAttribute>> categorySkuAttributeList(@PathVariable(value = "categoryId") Integer categoryId) {
         List<SkuAttribute> skuAttributes = skuAttributeService.queryList(categoryId);
         return RespResult.ok(skuAttributes);
     }
