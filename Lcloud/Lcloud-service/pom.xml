@@ -15,6 +15,7 @@
     </description>
     <modules>
         <module>Cart-service</module>
+        <module>Pay-service</module>
     </modules>
 
     <name>Lcloud-service</name>

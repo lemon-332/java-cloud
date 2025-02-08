@@ -13,6 +13,7 @@
     <modules>
         <module>Good-api</module>
         <module>Cart-api</module>
+        <module>Pay-api</module>
     </modules>
     <description>
         所有数据库表对应Bean和Feign接口

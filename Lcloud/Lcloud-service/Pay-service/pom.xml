@@ -7,10 +7,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>Cart-service</artifactId>
+    <artifactId>Pay-service</artifactId>
     <packaging>jar</packaging>
 
-    <name>Cart-service</name>
+    <name>Pay-service</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -20,20 +20,8 @@
     <dependencies>
         <dependency>
             <groupId>com.hjj</groupId>
-            <artifactId>Cart-api</artifactId>
+            <artifactId>Pay-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.hjj</groupId>
-            <artifactId>Good-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            <version>3.4.1</version>
         </dependency>
 
         <dependency>
@@ -41,6 +29,5 @@
             <artifactId>rocketmq-spring-boot-starter</artifactId>
             <version>2.0.2</version>
         </dependency>
-
     </dependencies>
 </project>
