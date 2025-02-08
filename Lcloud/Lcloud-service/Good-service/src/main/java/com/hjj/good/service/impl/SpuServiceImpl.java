@@ -12,7 +12,9 @@ import com.hjj.good.model.Category;
 import com.hjj.good.model.Product;
 import com.hjj.good.model.Spu;
 import com.hjj.good.service.SpuService;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.Map;
@@ -34,6 +36,8 @@ public class SpuServiceImpl extends ServiceImpl<SpuMapper, Spu> implements SpuSe
     }
 
     @Override
+    @GlobalTransactional
+    // @Transactional
     public void saveProduct(Product product) {
         Spu spu = product.getSpu();
         spu.setIsMarketable(1);// 已上架

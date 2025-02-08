@@ -43,6 +43,7 @@ public class SkuServiceImpl extends ServiceImpl<SkuMapper, Sku> implements SkuSe
     @CacheEvict(cacheNames = "ad-items-skus", key = "#id")
     @Override
     public void delTypeItems(Integer id) {
+        baseMapper.deleteById(id);
     }
 
     @CachePut(cacheNames = "ad-items-skus", key = "#id")
