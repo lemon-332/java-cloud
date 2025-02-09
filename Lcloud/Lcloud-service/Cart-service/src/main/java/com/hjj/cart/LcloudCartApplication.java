@@ -11,7 +11,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 @EnableFeignClients(basePackages = {"com.hjj.good.feign"})
 @MapperScan("com.hjj.cart.mapper")
 public class LcloudCartApplication {
-    public static void main(String[] args) {
+    public static void main  (String[] args) {
         SpringApplication.run(LcloudCartApplication.class, args);
     }
 }

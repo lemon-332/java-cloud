@@ -41,3 +41,23 @@ rocketmq:
     retry-times-when-send-failed: 2
     retry-next-server: true
     retry-times-when-send-async-failed: 0
+
+## 支付demo配置
+payconfig:
+  weixin:
+    ## 应用ID
+    appId: wx9fe55gt5r9f5
+    ## 商户ID
+    mchID: 15652548
+    ## 商户API密钥
+    key: Wfesfse5sfTGgR22r
+    ## 默认回调地址 （需要内网穿透一下）
+    notifyUrl: http://192.168.30.129:8090/pay/result
+    ## 证书路径
+    certPath: /Users/hjj/Desktop/微信支付/apiclient_cert.p12
+  ## 支付安全校验（验签）
+  aes:
+    ## AES 加密密钥
+    skey: 1234567890123456
+    ## 验签盐
+    salt: 1234567890123456
