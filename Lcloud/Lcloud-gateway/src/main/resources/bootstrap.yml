@@ -1,0 +1,29 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: Gateway
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: 192.168.30.129:8848
+      discovery:
+        server-addr: 192.168.30.129:8848
+    gateway:
+      routes:
+        - id: good-service
+          uri: lb://good-service # 使用nacos中的本地负载均衡策略
+          predicates:
+            - Path=/good-serv/**
+#          filters:
+#            - StripPrefix=1
+          #      discovery:
+          #        locator:
+          #          enabled: true  # 开启从注册中心动态创建路由的功能，利用微服务名进行路由 类似上面
+    sentinel:
+      transport:
+        dashboard: 192.168.30.129:8858
+
+
+
